@@ -1,4 +1,4 @@
-![MPV logo](https://en.wikipedia.org/wiki/Mpv_(media_player)#/media/File:Mpv_logo_(official).png)
+![mpv logo](https://raw.githubusercontent.com/mpv-player/mpv.io/master/source/images/mpv-logo-128.png)
 
 mpv is a no-nonsense, super-fast, minimal, efficient, lightweight, highly customizable player.
 
