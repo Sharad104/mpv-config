@@ -2,6 +2,8 @@
 
 mpv is a no-nonsense, super-fast, minimal, efficient, lightweight, highly customizable player.
 
+![img](https://github.com/cyl0/ModernX/blob/main/preview.png)
+
 ### To install on Windows:
 
 1. Download the latest version from [here](https://sourceforge.net/projects/mpv-player-windows/files/ "sourceforge link").
