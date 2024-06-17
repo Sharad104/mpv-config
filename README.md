@@ -28,8 +28,14 @@ This folder generally stores mpv.conf file and input.conf file. The mpv folder c
 
 
 ### scripts included : 
-- `chapterskip.lua`: Automatically skips chapters Based on title like OP/Opening ED/Ending in Anime.
-- `modernx.lua`: modern-looking interface for ON SCREEN CONTROLLS.
-- `mpv_chapters.js`: Display chapters using 'Tab' key and select using mouse click.
-- `playlistmanager.lua`: This script allows you to see and interact with your playlist in an easy way using 'F2' key.
-- `webm.lua`: Make simple WebM clips using 'F1' key.
+- [chapterskip.lua][1]: Automatically skips chapters Based on title like OP/Opening ED/Ending in Anime.
+- [modernx.lua][2]: Modern-looking interface for ON SCREEN CONTROLLS.
+- [mpv_chapters.js][3]: Display chapters using 'Tab' key and select using mouse click.
+- [playlistmanager.lua][4]: This script allows you to see and interact with your playlist in an easy way using 'F2' key.
+- [webm.lua][5]: Make simple WebM clips using 'F1' key.
+
+[1]: https://github.com/po5/chapterskip
+[2]: https://github.com/cyl0/ModernX
+[3]: https://github.com/zxhzxhz/mpv-chapters
+[4]: https://github.com/jonniek/mpv-playlistmanager
+[5]: https://github.com/ekisu/mpv-webm
