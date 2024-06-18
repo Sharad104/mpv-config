@@ -76,8 +76,8 @@ local options = {
 	-- On Windows, it shows a cmd popup. "auto" will display progress on non-Windows platforms.
 	display_progress = "auto",
 	-- The font size used in the menu. Isn't used for the notifications (started encode, finished encode etc)
-	font_size = 28,
-	margin = 10,
+	font_size = 20,
+	margin = 50,
 	message_duration = 5,
 	-- gif dither mode, 0-5 for bayer w/ bayer_scale 0-5, 6 for paletteuse default (sierra2_4a)
 	gif_dither = 2,
@@ -132,7 +132,7 @@ end
 mp.register_script_message("mpv-webm-set-options", test_set_options)
 local bold
 bold = function(text)
-  return "{\\b1}" .. tostring(text) .. "{\\b0}"
+  return "{\\b1\\bord2\\shad4}" .. tostring(text) .. "{\\b0}"
 end
 local message
 message = function(text, duration)
@@ -1504,7 +1504,7 @@ do
       local ass = assdraw.ass_new()
       ass:new_event()
       self:setup_text(ass)
-      ass:append("Encoding (" .. tostring(bold(progressText)) .. ")\\N")
+      ass:append("Encoding (" .. tostring(progressText) .. ")\\N")
       return mp.set_osd_ass(window_w, window_h, ass.text)
     end,
     parseLine = function(self, line)
@@ -2042,7 +2042,7 @@ encode = function(region, startTime, endTime)
       res = ewp:startEncode(command)
     end
     if res then
-      message("Encoded successfully! Saved to\\N" .. tostring(bold(out_path)))
+      message("Encoded successfully! Saved to\\N" .. tostring(out_path))
       emit_event("encode-finished", "success")
     else
       message("Encode failed! Check the logs for details.")
