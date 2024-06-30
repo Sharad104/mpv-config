@@ -8,8 +8,14 @@ mpv is a no-nonsense, super-fast, minimal, efficient, lightweight, highly custom
 ![img](https://github.com/Sharad104/mpv-config/blob/main/preview/chapters_preview.jpg)
 ## playlistmanager :
 ![img](https://github.com/Sharad104/mpv-config/blob/main/preview/playlistmanager_preview.jpg)
-# webm :
+## webm :
 ![img](https://github.com/Sharad104/mpv-config/blob/main/preview/webm_preview.jpg)
+
+## subtitle preview :
+1. Liberation Sans ->
+   ![img](https://github.com/Sharad104/mpv-config/blob/main/preview/LiberationSans_preview.jpg)
+2. Gandhi Sans ->
+   ![img](https://github.com/Sharad104/mpv-config/blob/main/preview/GandhiSans_preview.jpg)
 
 ### To install mpv on Windows:
 
