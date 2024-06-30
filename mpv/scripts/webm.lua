@@ -76,8 +76,8 @@ local options = {
 	-- On Windows, it shows a cmd popup. "auto" will display progress on non-Windows platforms.
 	display_progress = "auto",
 	-- The font size used in the menu. Isn't used for the notifications (started encode, finished encode etc)
-	font_size = 20,
-	margin = 50,
+	font_size = 28,
+	margin = 10,
 	message_duration = 5,
 	-- gif dither mode, 0-5 for bayer w/ bayer_scale 0-5, 6 for paletteuse default (sierra2_4a)
 	gif_dither = 2,
@@ -132,7 +132,7 @@ end
 mp.register_script_message("mpv-webm-set-options", test_set_options)
 local bold
 bold = function(text)
-  return "{\\b1\\bord2\\shad4}" .. tostring(text) .. "{\\b0}"
+  return "{\\b1}" .. tostring(text) .. "{\\b0}"
 end
 local message
 message = function(text, duration)
@@ -264,6 +264,7 @@ format_filename = function(startTime, endTime, videoFormat)
     ["%%T"] = mp.get_property("media-title"),
     ["%%M"] = (mp.get_property_native('aid') and not mp.get_property_native('mute') and hasAudioCodec) and '-audio' or '',
     ["%%R"] = (options.scale_height ~= -1) and "-" .. tostring(options.scale_height) .. "p" or "-" .. tostring(mp.get_property_native('height')) .. "p",
+    ["%%mb"] = options.target_filesize / 1000,
     ["%%t%%"] = "%%"
   }
   local filename = options.output_template
@@ -1335,7 +1336,6 @@ do
       end
       cfilter = cfilter .. "[vidtmp]split[topal][vidf];"
       cfilter = cfilter .. "[topal]palettegen[pal];"
-      cfilter = cfilter .. "[vidf]fifo[vidf];"
       cfilter = cfilter .. "[vidf][pal]paletteuse=diff_mode=rectangle"
       if options.gif_dither ~= 6 then
         cfilter = cfilter .. ":dither=bayer:bayer_scale=" .. tostring(options.gif_dither)
@@ -1504,7 +1504,7 @@ do
       local ass = assdraw.ass_new()
       ass:new_event()
       self:setup_text(ass)
-      ass:append("Encoding (" .. tostring(progressText) .. ")\\N")
+      ass:append("Encoding (" .. tostring(bold(progressText)) .. ")\\N")
       return mp.set_osd_ass(window_w, window_h, ass.text)
     end,
     parseLine = function(self, line)
@@ -1733,15 +1733,40 @@ end
 local get_playback_options
 get_playback_options = function()
   local ret = { }
+  append_property(ret, "video-rotate")
+  append_property(ret, "ytdl-format")
+  append_property(ret, "deinterlace")
+  return ret
+end
+local get_sub_options
+get_sub_options = function()
+  local ret = { }
   append_property(ret, "sub-ass-override")
   append_property(ret, "sub-ass-force-style")
   append_property(ret, "sub-ass-vsfilter-aspect-compat")
   append_property(ret, "sub-auto")
   append_property(ret, "sub-pos")
   append_property(ret, "sub-delay")
-  append_property(ret, "video-rotate")
-  append_property(ret, "ytdl-format")
-  append_property(ret, "deinterlace")
+  append_property(ret, "sub-scale")
+  append_property(ret, "sub-font")
+  append_property(ret, "sub-font-size")
+  append_property(ret, "sub-bold")
+  append_property(ret, "sub-italic")
+  append_property(ret, "sub-color")
+  append_property(ret, "sub-back-color")
+  append_property(ret, "sub-border-color")
+  append_property(ret, "sub-border-size")
+  append_property(ret, "sub-shadow-color")
+  append_property(ret, "sub-shadow-offset")
+  append_property(ret, "sub-use-margins")
+  append_property(ret, "sub-margin-x")
+  append_property(ret, "sub-margin-y")
+  append_property(ret, "sub-align-x")
+  append_property(ret, "sub-align-y")
+  append_property(ret, "sub-spacing")
+  append_property(ret, "sub-justify")
+  append_property(ret, "sub-gauss")
+  append_property(ret, "sub-gray")
   return ret
 end
 local get_speed_flags
@@ -1814,6 +1839,7 @@ local get_video_encode_flags
 get_video_encode_flags = function(format, region)
   local flags = { }
   append(flags, get_playback_options())
+  append(flags, get_sub_options())
   local filters = get_video_filters(format, region)
   for _index_0 = 1, #filters do
     local f = filters[_index_0]
@@ -2042,7 +2068,7 @@ encode = function(region, startTime, endTime)
       res = ewp:startEncode(command)
     end
     if res then
-      message("Encoded successfully! Saved to\\N" .. tostring(out_path))
+      message("Encoded successfully! Saved to\\N" .. tostring(bold(out_path)))
       emit_event("encode-finished", "success")
     else
       message("Encode failed! Check the logs for details.")
