@@ -2,9 +2,16 @@
 
 mpv is a no-nonsense, super-fast, minimal, efficient, lightweight, highly customizable player.
 
-![img](https://github.com/cyl0/ModernX/blob/main/preview.png)
+## modernx :
+![img](https://github.com/Sharad104/mpv-config/blob/main/preview/modernx_preview.jpg)
+## chapters :
+![img](https://github.com/Sharad104/mpv-config/blob/main/preview/chapters_preview.jpg)
+## playlistmanager :
+![img](https://github.com/Sharad104/mpv-config/blob/main/preview/playlistmanager_preview.jpg)
+# webm :
+![img](https://github.com/Sharad104/mpv-config/blob/main/preview/webm_preview.jpg)
 
-### To install on Windows:
+### To install mpv on Windows:
 
 1. Download the latest version from [here](https://sourceforge.net/projects/mpv-player-windows/files/ "sourceforge link").
 2. Extract the zip file.
@@ -13,7 +20,7 @@ mpv is a no-nonsense, super-fast, minimal, efficient, lightweight, highly custom
 5. Run `mpv_install.bat` as ADMIN under the installer folder to assign all video file extensions to mpv.
 
 
-### To install on Ubuntu/Linux :
+### To install mpv on Ubuntu/Linux :
 1. Open terminal and execute these commands one by one
 2. `sudo add-apt-repository ppa:mc3man/mpv-tests` 
 3. `sudo apt update`
