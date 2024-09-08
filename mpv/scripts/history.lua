@@ -122,7 +122,7 @@ path = ""
 local o = {
     exclude = "",
     storage_path = "~~/history.txt",
-    minimal_play_time = 600, -- 10 minutes 
+    minimal_play_time = 300, -- 5 minutes 
 }
 
 opt = require "mp.options"
