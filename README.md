@@ -34,6 +34,8 @@ This folder generally stores mpv.conf file and input.conf file. The mpv folder c
 - [playlistmanager.lua][4]: This script allows you to see and interact with your playlist in an easy way using 'F2' key.
 - [webm.lua][5]: Make simple WebM clips using 'F1' key.
 - [thumbfast.lua][6]: lightweigh thumbnail generator script working with modernx script.
+- [history.lua][7]: stores the history of played files to history.txt at mpv config folder
+- [FSRCNNX shader][8] : Fast Super-Resolution Convolutional Neural Network X . It upscales lower-resolution videos to higher-resolution without making it look blurry via neural networks.
 
 [1]: https://github.com/po5/chapterskip
 [2]: https://github.com/cyl0/ModernX
@@ -41,3 +43,5 @@ This folder generally stores mpv.conf file and input.conf file. The mpv folder c
 [4]: https://github.com/jonniek/mpv-playlistmanager
 [5]: https://github.com/ekisu/mpv-webm
 [6]: https://github.com/po5/thumbfast
+[7]: https://github.com/stax76/mpv-scripts/blob/main/history.lua
+[8]: https://github.com/igv/FSRCNN-TensorFlow/releases
