@@ -1,5 +1,7 @@
 ![mpv logo](https://raw.githubusercontent.com/mpv-player/mpv.io/master/source/images/mpv-logo-128.png)
+
 mpv is a no-nonsense, super-fast, minimal, efficient, lightweight, highly customizable player.
+
 ![img](https://github.com/Sharad104/mpv-config/blob/main/preview.jpg)
 
 
@@ -20,6 +22,7 @@ mpv is a no-nonsense, super-fast, minimal, efficient, lightweight, highly custom
 
 ### Configuration :
 mpv configuration files are stored in `C:\Users\USERNAME\AppData\Roaming\mpv\` on windows and `~/.config/mpv/` on linux . If this mpv folder doesn’t exist, create one.
+
 This folder generally stores mpv.conf file and input.conf file. The mpv folder contains subfolders named "scripts" and "script-opts" which store scripts and script settings/options.
 
 
