@@ -4,7 +4,7 @@
    https://github.com/Samillion/ModernZ/tree/main/extras/pause-indicator-lite
 
 --]]
-
+      
 local options = {
     -- indicator icon type
     indicator_icon = "pause",        -- indicator icon type. "pause", "play"
@@ -12,7 +12,7 @@ local options = {
     indicator_timeout = 0.6,         -- timeout (seconds) if indicator doesn't stay
 
     -- keybind
-    keybind_allow = true,            -- allow keybind to toggle pause
+    keybind_allow = false,            -- allow keybind to toggle pause
     keybind_set = "mbtn_left",       -- the used keybind to toggle pause
     keybind_mode = "onpause",        -- mode to activate keybind. "onpause", "always"
 
